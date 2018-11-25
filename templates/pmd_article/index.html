@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="body_container">
+        <div class="introduction">
+            <div class="title">椰子呆呆的博客 <span>(文章:13 | 字数:86)</span></div>
+            <div class="article">文章</div>
+        </div>
+        <div class="article_list">
+            <!-- 文章列表模块 -->
+            <div class="arc_container">
+                <ul>
+                {% for a in article_list %}
+                    <li>
+                        <div >
+                            <a href="p/{{ a.id }}">{{ a.a_title }}</a>
+                            <span class="fr">{{ a.a_ch_time }}</span>
+                        </div>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

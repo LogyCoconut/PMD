@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header_container">
+            <div class="welcome fl">
+                <a href="/">PMD</a>
+            </div>
+            <div class="write_btn fr">
+                <a href="/write/">写文章</a>
+            </div>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>

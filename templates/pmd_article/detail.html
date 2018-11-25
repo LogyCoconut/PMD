@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <h3>{{ article.a_title }}</h3>
+    </div>
+    <div>
+        <span>{{ article.a_ch_time }}</span>
+        <a href="/">修改</a>
+    </div>
+    <div>
+        {% autoescape off %}
+            <p>{{ html }}</p>
+        {% endautoescape %}
+    </div>
+{% endblock %}

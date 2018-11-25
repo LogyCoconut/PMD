@@ -1,0 +1,85 @@
+body{font-family:'Microsoft Yahei';font-size:16px;color:#666;}
+html,body{height:100%}
+
+.header{
+    background-color: #ffffff;
+    height: 50px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.header_container{
+    width: 980px;
+    margin: auto;
+}
+
+.welcome, .write_btn{
+    line-height: 50px;
+}
+
+.welcome{
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.welcome a{
+    color: #ea6f5a;
+}
+
+.write_btn{
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    margin-top: 5px;
+    background-color: #ea6f5a;
+    border-radius: 25%;
+    text-align: center;
+}
+
+.write_btn a{
+    color: #ffffff;
+}
+
+.body_container{
+    width: 980px;
+    margin: 25px auto;
+}
+
+.introduction{
+
+}
+
+.title{
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title span{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.article{
+    width: 80px;
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid#000000;
+}
+
+.article_list{
+    border-top: 1px solid #dddddd;
+}
+
+.arc_container{
+    margin-top: 10px;
+}
+
+.article_list a{
+    font-size: 18px;
+    color: #333333;
+}
+.article_list a:hover{
+    color: black;
+    font-size: 19px;
+}
