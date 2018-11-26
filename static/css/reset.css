@@ -1,8 +1,9 @@
 /* 把标签默认的间距设为0 */
-body, ul, ol, p, h1, h2, h3, h4, h5, h6, dl, dd, select, input, textarea, form{margin:0;padding:0}
+body, ul, ol, p,dl, dd, select, input, textarea, form{margin:0;padding:0}
+ /*h1, h2, h3, h4, h5, h6, */
 
 /* 让h标签文字大小继承body的文字设置 */
-h1, h2, h3, h4, h5, h6{font-size:100%;font-weight:normal;}
+/*h1, h2, h3, h4, h5, h6{font-size:100%;font-weight:normal;}*/
 
 /* 去掉列表默认的图标 */
 ul, ol{list-style:none;}
@@ -15,7 +16,7 @@ a{text-decoration:none;}
 
 
 /* 去掉加链接时产生的框线 */
-img{border:0;}
+img{border:0;max-width: 100%;display: block;margin:10px auto 10px;}
 
 /* 清除浮动 */
 .clearfix:before, .clearfix:after{content:"";display:table}
@@ -25,3 +26,25 @@ img{border:0;}
 /* 浮动 */
 .fl{float:left}
 .fr{float:right}
+
+code{
+    padding: 2px 4px;
+    background-color: #f6f6f6;
+    border: none;
+    font-size: 13px;
+    white-space: pre-wrap;
+    vertical-align: middle;
+    color: #c7254e;
+}
+
+blockquote{
+    padding: 10px;
+    margin-left: 0;
+    margin-bottom: 25px;
+    background-color: #f7f7f7;
+    border-left: 6px solid #b4b4b4;
+    word-break: break-word!important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+}
