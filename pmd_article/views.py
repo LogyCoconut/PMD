@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
+from . import login_check
 from .models import *
 import markdown
 import datetime
 import time
-# Create your views here.
 
 
 def index(request):
@@ -13,11 +13,19 @@ def index(request):
     主页，展示文章列表
     """
     article_list = ArticleInfo.objects.all().order_by("-id")
-    # 过滤掉ｉｄ＝３的文章
+    # 过滤掉id=3的文章(作为默认页的3)
     article_list = article_list.filter(~Q(id=3))
+
+    article_count = len(article_list)
+    word_count = 0
+    for a in article_list:
+        word_count += int(a.a_word_count)
+
     context ={
         'title': '椰子呆呆 - PMD',
         'article_list': article_list,
+        'article_count': article_count,
+        'word_count': word_count,
     }
     return render(request, 'pmd_article/index.html', context)
 
@@ -36,10 +44,10 @@ def detail(request, id):
     return render(request, 'pmd_article/detail.html', context)
 
 
+@login_check.login_auth
 def write(request, id):
     """
-    id=0: 新增文章
-    id=其他: 修改文章
+    编辑界面
     """
     article = ArticleInfo.objects.filter(id=id)[0]
     html = markdown.markdown(article.a_content)
@@ -52,7 +60,7 @@ def write(request, id):
 
 def save(request, id):
     """
-    修改文章
+    修改文章或者新建文章
     """
     # 接受post
     post = request.POST
@@ -69,6 +77,7 @@ def save(request, id):
             'a_title': title,
             'a_content': content,
             'a_ct_time': now_time,
+            'a_word_count': count(content),
         }
         ArticleInfo.objects.create(**dic)
         # 找到最新的那条记录
@@ -78,11 +87,13 @@ def save(request, id):
         article = ArticleInfo.objects.filter(id=id)[0]
         article.a_title = title
         article.a_content = content
+        article.a_word_count = count(content)
         article.save()
         iid = id
         print("al")
 
     return redirect("/w/"+iid)
+
 
 def delete(request, id):
     """
@@ -90,3 +101,32 @@ def delete(request, id):
     """
     ArticleInfo.objects.filter(id=id).delete()
     return redirect("/")
+
+
+def login(request):
+    """
+    登录界面
+    """
+    return render(request, "pmd_article/login.html")
+
+def login_deal(request):
+    """
+    登陆处理，设置cookie
+    """
+    response = redirect('/')
+    response.set_cookie('user', 'myself')
+    return response
+
+
+def count(txt):
+    """
+    统计字数
+    """
+    count = 0
+    for s in txt:
+        # 中文字符范围
+        if '\u4e00' <= s <= '\u9fff':
+            count += 1
+
+    return count
+
