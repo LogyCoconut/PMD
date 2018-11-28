@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
 from . import login_check
 from .models import *
 import markdown
@@ -13,9 +12,10 @@ def index(request):
     主页，展示文章列表
     """
     article_list = ArticleInfo.objects.all().order_by("-id")
-    # 过滤掉id=3的文章(作为默认页的3)
-    article_list = article_list.filter(~Q(id=3))
+    # 过滤掉作为默认页的13
+    article_list = article_list.filter(~Q(id=13))
 
+    # 统计文章数和总字数
     article_count = len(article_list)
     word_count = 0
     for a in article_list:
@@ -49,11 +49,17 @@ def write(request, id):
     """
     编辑界面
     """
+    # 如果是默认编辑页则传入一个False
+    is_default = False
+    if id == "13":
+        is_default = True
+
     article = ArticleInfo.objects.filter(id=id)[0]
     html = markdown.markdown(article.a_content)
     context = {
         'article': article,
         'html': html,
+        'is_default': is_default,
     }
     return render(request, 'pmd_article/write.html', context)
 
@@ -67,8 +73,8 @@ def save(request, id):
     title = post.get('title')
     content = post.get('article')
 
-    # 当id=3时，新建文章
-    if id == "3":
+    # 当id=13时，新建文章
+    if id == "13":
         # 获取当前日期
         time_stamp = time.time()
         now_time = datetime.datetime.fromtimestamp(time_stamp).strftime('%Y-%m-%d')

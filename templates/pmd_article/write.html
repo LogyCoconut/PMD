@@ -16,9 +16,11 @@
                     <input type="submit" class="wp_save" name="" value="保存">
                 </div>
             </form>
-            <div class="del_btn fl">
-                <a href="/del{{ article.id }}">删除</a>
-            </div>
+            {% if not is_default %}
+                <div class="del_btn fl">
+                    <a href="/del{{ article.id }}">删除</a>
+                </div>
+            {% endif %}
         </div>
 
         <div class="pre_show fr">

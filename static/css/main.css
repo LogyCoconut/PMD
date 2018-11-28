@@ -35,6 +35,9 @@ html,body{height:100%}
     border-radius: 50px;
     text-align: center;
 }
+.write_btn:hover{
+    background-color: #008cbb;
+}
 
 .write_btn a{
     color: #ffffff;
@@ -109,6 +112,10 @@ html,body{height:100%}
     border-radius: 50px;
     padding: 0 20px;
 }
+.article_info a:hover{
+    color: #ffffff;
+    background-color: #9b9b9b;
+}
 
 .content_container{
     margin:0 0 40px;
@@ -167,6 +174,9 @@ html,body{height:100%}
     background-color: #ffffff;
     border: none;
 }
+.wp_save_btn input:hover{
+    color: #130dbb;
+}
 
 .wp_article textarea{
     width: 90%;
@@ -210,9 +220,11 @@ html,body{height:100%}
     right: 2%;
     top: 93%;
 }
-
 .del_btn a{
     color: #0077bb;
     background-color: #ffffff;
     border: none;
+}
+.del_btn a:hover{
+    color: red;
 }
