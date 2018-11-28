@@ -1,32 +1,23 @@
 {% extends "base.html" %}
 
-{% block head %}
-    <script type="text/javascript">
-        $(function () {
-            $('#wp_save').click(function () {
-                txt = $("#text").html();
-                $.post('/save{{ article.id }}', {article: txt}, function (dic) {
-                    $ps_a = $('#ps_article');
-                    $ps_a.empty();
-                    $ps_a.html(dic.data);
-                })
-            });
-        })
-    </script>
-{% endblock %}
-
 {% block content %}
     <div class="write_container">
-
         <div class="write_platform fl">
-            <div class="wp_title">
-                <input type="text" id="wp_input" value={{ article.a_title }} >
-            </div>
-            <div class="wp_save_btn fr">
-                <a class="wp_save" id="wp_save">保存</a>
-            </div>
-            <div class="wp_article">
-                <label><textarea id="text">{{ article.a_content }}</textarea></label>
+            <form action="/save{{ article.id }}" method="post">
+                {% csrf_token %}
+                <div class="wp_title">
+                    <input type="text" name="title" placeholder="请输入标题" value={{ article.a_title }}>
+                </div>
+                <div class="wp_article">
+                    <textarea id="text" name="article">{{ article.a_content }}</textarea>
+                </div>
+
+                <div class="wp_save_btn fr">
+                    <input type="submit" class="wp_save" name="" value="保存">
+                </div>
+            </form>
+            <div class="del_btn fl">
+                <a href="/del{{ article.id }}">删除</a>
             </div>
         </div>
 

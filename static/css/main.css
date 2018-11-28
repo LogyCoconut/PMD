@@ -22,7 +22,7 @@ html,body{height:100%}
 }
 
 .welcome a{
-    color: #ea6f5a;
+    color: #0077bb;
 }
 
 .write_btn{
@@ -30,7 +30,7 @@ html,body{height:100%}
     height: 40px;
     margin-right: 20px;
     margin-top: 5px;
-    background-color: #ea6f5a;
+    background-color: #0077bb;
     border-radius: 50px;
     text-align: center;
 }
@@ -128,7 +128,7 @@ html,body{height:100%}
 .pre_show{
     width: 50%;
     height: 100%;
-    background-color: #fcfaf2;
+    background-color: #f9f9f5;
 }
 
 .wp_title input{
@@ -161,9 +161,10 @@ html,body{height:100%}
     left: 2%;
     top: 93%;
 }
-.wp_save_btn a{
-    color: #ea6f5a;
-
+.wp_save_btn input{
+    color: #0077bb;
+    background-color: #ffffff;
+    border: none;
 }
 
 .wp_article textarea{
@@ -194,4 +195,23 @@ html,body{height:100%}
 .ps_article{
     margin: 0 10px 30px;
     padding: 10px;
+}
+
+.del_btn{
+    width: 50px;
+    height: 40px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    background-color: #ffffff;
+    text-align: center;
+    line-height: 40px;
+    position: fixed;
+    right: 2%;
+    top: 93%;
+}
+
+.del_btn a{
+    color: #0077bb;
+    background-color: #ffffff;
+    border: none;
 }

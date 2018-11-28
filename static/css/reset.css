@@ -1,6 +1,6 @@
 /* 把标签默认的间距设为0 */
-body, ul, ol, p,dl, dd, select, input, textarea, form{margin:0;padding:0}
- /*h1, h2, h3, h4, h5, h6, */
+body, ul, ol,dl, dd, select, input, textarea, form{margin:0;padding:0}
+ /*h1, h2, h3, h4, h5, h6, p*/
 
 /* 让h标签文字大小继承body的文字设置 */
 /*h1, h2, h3, h4, h5, h6{font-size:100%;font-weight:normal;}*/
@@ -9,7 +9,7 @@ body, ul, ol, p,dl, dd, select, input, textarea, form{margin:0;padding:0}
 ul, ol{list-style:none;}
 
 /* 去掉em默认的斜体 */
-em{font-style: normal;}
+/*em{font-style: normal;}*/
 
 /* 去掉a标签默认的下划线 */
 a{text-decoration:none;}
@@ -29,12 +29,13 @@ img{border:0;max-width: 100%;display: block;margin:10px auto 10px;}
 
 code{
     padding: 2px 4px;
-    background-color: #f6f6f6;
+    background-color: #dde2e5;
     border: none;
-    font-size: 13px;
+    /*font-size: 13px;*/
     white-space: pre-wrap;
     vertical-align: middle;
-    color: #c7254e;
+    color: #4271ae;
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 }
 
 blockquote{
