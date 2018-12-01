@@ -1,6 +1,5 @@
-# 基于Markdown的个人博客实现
+# 基于Markdown的个人博客实现 ---- "PMD"
 # Project Title 项目名称
-## "PMD个人博客"
 一个基于Markdown的个人博客系统实现，实现了主页、详情页以及编写页三块功能，分别可以查看文章列表、查看文章详情、新增或修改文章，暂不支持添加图片，后续可能会加上
 # GettingStart 使用手册
 **Prerequisite 开发环境**
